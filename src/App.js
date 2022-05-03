@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Link, Route } from 'react-router-dom'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import FormPage from './FormPage';
+import AdminPage from './AdminPage';
 
-function App() {
+const App = (props) => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Link to="/formPage"> <button className="btn btn-info">User Form </button></Link>
+      <Link to="/adminPage"> <button className="btn btn-info" style={{display:'inline-block'}}> Admin Dashboard </button> </Link>
+
+      <Route path="/formPage" component={FormPage} exact={true}/>
+      <Route path="/adminPage" component={AdminPage} exact={true}/> 
     </div>
-  );
+
+  )
 }
 
-export default App;
+export default App
